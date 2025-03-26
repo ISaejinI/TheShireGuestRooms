@@ -21,9 +21,12 @@ if (class_exists('Geniem\ACF\Group')) {
 
 require_once 'inc/PostType.php';
 require_once 'inc/CustomFields.php';
+require_once 'inc/CustomTaxonomies.php';
 
 use SmialsManager\PostType;
 use SmialsManager\CustomFields;
+use SmialsManager\CustomTaxonomies;
 
 (new PostType())->register();
 (new CustomFields())->register();
+(new CustomTaxonomies())->register();
