@@ -27,8 +27,9 @@ require_once 'inc/Filters.php';
 use SmialsManager\PostType;
 use SmialsManager\CustomFields;
 use SmialsManager\CustomTaxonomies;
+use SmialsManager\Filters;
 
 (new PostType())->register();
 (new CustomFields())->register();
 (new CustomTaxonomies())->register();
-(new CustomFields())->register();
+(new Filters())->register();

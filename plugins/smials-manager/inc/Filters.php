@@ -17,6 +17,7 @@ class Filters
 
         if (is_post_type_archive(PostType::POST_TYPE)) {
             foreach ($_POST as $name => $value) {
+
                 if (str_contains($name, 'filter') && !empty($value)) {
                     $key = str_replace('filter-', '', $name);
                     $query->set('meta_key', $key);

@@ -1,5 +1,7 @@
 <?php
 
+// var_dump($_POST['filter-night_price']);
+
 $bedCount_choices = [];
 $nightPrice_choices = [];
 
@@ -30,20 +32,15 @@ $action = home_url($wp->request);
 <form action="<?php echo $action ?>" method="post">
     <p>Nombre de couchages</p>
     <?php foreach ($bedCount_choices as $choice) : ?>
-        <input type="checkbox" id="bed_<?php echo esc_attr($choice); ?>" name="bed_count[]" value="<?php echo esc_attr($choice); ?>" <?php echo (!empty($_POST['bed_count']) && in_array($choice, $_POST['bed_count'])) ? 'checked' : ''; ?> />
+        <input type="checkbox" id="bed_<?php echo esc_attr($choice); ?>" name="filter-bed_count[]" value="<?php echo esc_attr($choice); ?>" <?php echo (!empty($_POST['bed_count']) && in_array($choice, $_POST['bed_count'])) ? 'checked' : ''; ?> />
         <label for="bed_<?php echo esc_attr($choice); ?>"><?php echo esc_html($choice); ?></label>
     <?php endforeach; ?>
 
     <p>Prix par nuits</p>
     <select name="filter-night_price">
         <option value="">-- Sélectionner --</option>
-        <?php foreach ($nightPrice_choices as $value => $choice) : ?>
-            <option
-                    value="<?php echo $value ?>"
-                <?php echo $_POST && $_POST['filter-night_price'] === $value ? 'selected' : '' ?>
-            >
-                <?php echo $choice ?>
-            </option>
+        <?php foreach ($nightPrice_choices as $choice) : ?>
+            <option value="<?php echo $choice ?>" <?php echo $_POST && $_POST['filter-night_price'] === $choice ? 'selected' : '' ?>> <?php echo $choice ?> </option>
         <?php endforeach; ?>
     </select>
 
