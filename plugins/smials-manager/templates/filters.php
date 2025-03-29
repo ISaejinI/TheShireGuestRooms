@@ -1,7 +1,5 @@
 <?php
 
-// var_dump($_POST['filter-night_price']);
-
 $bedCount_choices = [];
 $nightPrice_choices = [];
 
